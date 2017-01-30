@@ -1,9 +1,9 @@
 ---
 title: basic_repair
-timestamp: 2017-01-30T14:56:33.031126+11:00
+timestamp: 2017-01-30T15:42:12.3392642+11:00
 ---
 
-I have dropped my [phone](Mobile), it seems like [LCD](Problem_part) is [broken](Problem).
+I have dropped my [phone](Mobile), it seems like [LCD](Problem#Part) is [broken](Problem).
 * Request_test/LCD
 
 < What is the [model](problem_model) of your [phone](Mobile)?
@@ -12,5 +12,5 @@ I have dropped my [phone](Mobile), it seems like [LCD](Problem_part) is [broken]
 It is [Samsung](Company) [Galaxy](Model) [S5](problem_model)
 * Answer_question/model_pro
 
-< [Samsung](Company) [Galaxy](Mobile) [S5](Model) [LCD](Problem) replacement is [$200](currency/Price)
+< [Samsung](Mobile#Company) [Galaxy](Mobile#Brand) [S5](Mobile#Model) [LCD](Problem#Part) replacement is [$200](currency/Problem#Cost)
 * Answer/Price
