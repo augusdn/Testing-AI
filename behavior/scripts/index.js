@@ -86,10 +86,22 @@ exports.handle = function handle(client) {
   })
 
 
+  const handleBot = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('bot_name')
+      client.done()
+    }
+  })
+
   client.runFlow({
     classifications: {
       goodbye: 'goodbye',
       greeting: 'greeting',
+	  greeting_bot/name: 'bot_name',
 	  request_name/name: 'req_name',
 	  provide_name/name: 'prov_name',
 	  confirm_name/name: 'conf_name'
@@ -97,6 +109,7 @@ exports.handle = function handle(client) {
     streams: {
       goodbye: handleGoodbye,
       greeting: handleGreeting,
+	  greeting_bot/name: handleBot,
 	  request_name/name: handleRequest,
 	  provide_name/name: handleProv,
 	  confirm_name/name: handleconf,

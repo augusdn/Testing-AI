@@ -85,11 +85,6 @@ exports.handle = function handle(client) {
     }
   })
 
-    prompt() {
-      client.addResponse('goodbye')
-      client.done()
-    }
-  })
 
   client.runFlow({
     classifications: {
