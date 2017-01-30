@@ -52,14 +52,60 @@ exports.handle = function handle(client) {
     }
   })
 
+  const handleRequest = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('req_name')
+      client.done()
+    }
+  })
+
+  const handleProv = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('prov_name')
+      client.done()
+    }
+  })
+
+  const handleconf = client.createStep({
+    satisfied() {
+      return false
+    },
+
+    prompt() {
+      client.addResponse('conf_name')
+      client.done()
+    }
+  })
+
+    prompt() {
+      client.addResponse('goodbye')
+      client.done()
+    }
+  })
+
   client.runFlow({
     classifications: {
       goodbye: 'goodbye',
-      greeting: 'greeting'
+      greeting: 'greeting',
+	  request_name/name: 'req_name',
+	  provide_name/name: 'prov_name',
+	  confirm_name/name: 'conf_name'
     },
     streams: {
       goodbye: handleGoodbye,
       greeting: handleGreeting,
+	  request_name/name: handleRequest,
+	  provide_name/name: handleProv,
+	  confirm_name/name: handleconf,
+	  
       main: 'onboarding',
       onboarding: [sayHello],
       end: [untrained]
